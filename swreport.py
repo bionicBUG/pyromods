@@ -16,8 +16,8 @@ class SpamWatchReport(module.Module):
     @command.usage("[reply to a spam message]", reply=True)
     async def cmd_spamr(self, ctx: command.Context):
         group: str = "t.me/SpamWatchSupport"
-        if ctx.msg.is_reply:
-            spam = await ctx.msg.get_reply_message()
+        if (ctx.msg.is_reply or ctx.msg.file):
+            spam = ctx.msg if ctx.msg.file else await ctx.msg.get_reply_message()
             await ctx.respond("Reporting message to SpamWatch")
 
             lines = []
