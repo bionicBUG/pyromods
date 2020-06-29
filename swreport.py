@@ -22,15 +22,14 @@ class SpamWatchReport(module.Module):
 
             lines = []
 
-            reply_msg = await ctx.msg.get_reply_message()
-            sender = await reply_msg.get_sender()
+            sender = await spam.get_sender()
 
             if sender:
                 lines.append(f"Message author ID: `{sender.id}`")
 
-            if reply_msg.forward:
-                if reply_msg.forward.from_id:
-                    lines.append(f"Forwarded message author ID: `{reply_msg.forward.from_id}`")
+            if spam.forward:
+                if spam.forward.from_id:
+                    lines.append(f"Forwarded message author ID: `{spam.forward.from_id}`")
 
             msg_data = "\n".join(lines)
             
