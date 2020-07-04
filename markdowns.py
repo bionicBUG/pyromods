@@ -1,3 +1,8 @@
+"""
+A pyrobud module for easier markdowns.
+Author : Ojas Sinha<sinhaojas67@gmail.com>
+"""
+
 from pyrobud import command, module
 
 class Markdowns(module.Module):
