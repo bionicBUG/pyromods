@@ -18,7 +18,7 @@ class SpamWatchReport(module.Module):
         group: str = "t.me/SpamWatchSupport"
         if (ctx.msg.is_reply or ctx.msg.file):
             spam = ctx.msg if ctx.msg.file else await ctx.msg.get_reply_message()
-            await ctx.respond("Reporting message to SpamWatch")
+            await ctx.respond("__Reporting message to SpamWatch__")
 
             lines = []
 
@@ -36,7 +36,7 @@ class SpamWatchReport(module.Module):
             await self.bot.client.forward_messages(entity=group, messages=spam, silent=True)
             await self.bot.client.send_message(group, msg_data)
 
-            await ctx.respond("Reported to SpamWatch")
+            await ctx.respond("__Reported to SpamWatch__")
 
         else:
-            ctx.respond("Reply to a message to report!")
+            ctx.respond("__Reply to a message to report!__")
