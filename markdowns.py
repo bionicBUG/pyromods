@@ -25,14 +25,6 @@ class Markdowns(module.Module):
         text = ctx.input
         return "__" + text + "__"
 
-    @command.desc("Strikethrough")
-    @command.alias("sth")
-    async def cmd_under(self, ctx: command.Context) -> str:
-        if not ctx.input:
-            return "~~Enter the text~~"
-        text = ctx.input
-        return "~~" + text + "~~"
-
     @command.desc("Monospace")
     @command.alias("mo")
     async def cmd_mono(self, ctx: command.Context) -> str:
